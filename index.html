@@ -597,26 +597,36 @@
       }
 
       // Проверка вопросов 4-7 (checkbox)
-      const checkboxQuestions = ['q4', 'q5', 'q6', 'q7'];
-      for (let q of checkboxQuestions) {
-        const checkboxes = document.querySelectorAll(`input[name="${q}"]`);
-        let allCorrect = true;
-        
-        checkboxes.forEach(cb => {
-          const parentOpt = cb.closest('.option');
-          if (cb.value === 'right' && !cb.checked) {
-            allCorrect = false;
-            parentOpt.classList.add('missed');
-          } else if (cb.value === 'right' && cb.checked) {
-            parentOpt.classList.add('correct');
-          } else if (cb.value === 'wrong' && cb.checked) {
-            allCorrect = false;
-            parentOpt.classList.add('incorrect');
-          }
-        });
-        
-        if (allCorrect) score++;
+const checkboxQuestions = ['q4', 'q5', 'q6', 'q7'];
+for (let q of checkboxQuestions) {
+  const checkboxes = document.querySelectorAll(`input[name="${q}"]`);
+  let selectedRight = 0;
+  
+  checkboxes.forEach(cb => {
+    const parentOpt = cb.closest('.option');
+    
+    if (cb.value === 'right') {
+      if (cb.checked) {
+        selectedRight++;
+        parentOpt.classList.add('correct');
+      } else {
+        parentOpt.classList.add('missed');
       }
+    } else if (cb.value === 'wrong') {
+      if (cb.checked) {
+        parentOpt.classList.add('incorrect');
+      }
+    }
+  });
+  
+  // Начисление баллов
+  if (selectedRight === 2) {
+    score += 1;       // оба правильных
+  } else if (selectedRight === 1) {
+    score += 0.5;     // только один правильный
+  }
+  // selectedRight === 0 — 0 баллов
+}
 
       // Проверка вопросов 8-10 (текстовые)
       const textQuestions = ['q8', 'q9', 'q10'];
