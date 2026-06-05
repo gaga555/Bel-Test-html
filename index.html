@@ -463,7 +463,7 @@
             <span class="q-text">У якіх варыянтах спалучэнні слоў пішуцца цалкам асобна (у два або тры словы без дэфісаў)?</span>
           </div>
           <div class="options">
-            <label class="option" data-value="wrong"><input type="checkbox" name="q6" value="wrong"> (сам) на сам</label>
+            <label class="option" data-value="rught"><input type="checkbox" name="q6" value="right"> абы(ў)каго</label>
             <label class="option" data-value="right"><input type="checkbox" name="q6" value="right"> (дзень)у(дзень)</label>
             <label class="option" data-value="wrong"><input type="checkbox" name="q6" value="wrong"> (крыж)на(крыж)</label>
             <label class="option" data-value="right"><input type="checkbox" name="q6" value="right"> (з)роду(ў)род</label>
@@ -478,11 +478,11 @@
             <span class="q-text">Вызначце прыклады, якія пішуцца разам:</span>
           </div>
       <div class="лилшио дл ишшиолдьг обшттолш options">
-            <label class="option" data-value="right"><input type="checkbox" name="q7" value="right">псеўда(культура)</label>
-            <label class="option" data-value="right"><input type="checkbox" name="q7" value="right"> (да)шчэнту</label>
-            <label class="option" data-value="wrong"><input type="checkbox" name="q7" value="wrong"> (пад)сілу</label>
-            <label class="option" data-value="wrong"><input type="checkbox" name="q7" value="wrong"> (у)пацьмеце</label>
-            <label class="option" data-value="wrong"><input type="checkbox" name="q7" value="wrong"> (на)пагатоў</label>
+            <label class="option" data-value="right"><input type="checkbox" name="q7" value="right">аэра(клуб)</label>
+            <label class="option" data-value="wrong"><input type="checkbox" name="q7" value="wrong"> (сям)там</label>
+            <label class="option" data-value="wrong"><input type="checkbox" name="q7" value="wrong"> міні(матч)</label>
+            <label class="option" data-value="wrong"><input type="checkbox" name="q7" value="wrong"> абы(хто)</label>
+            <label class="option" data-value="right"><input type="checkbox" name="q7" value="right"> (сарві)галава</label>
           </div>
         </div>        <!-- ==================== -->
         <!-- ЧАСТКА 3: Пытанні 8-10 (тэкставы адказ) -->
@@ -493,7 +493,7 @@
         <div class="question-block" data-question="q8">
           <div class="q-title">
             <span class="q-number">8</span>
-            <span class="q-text">Улічваючы кантэкст, закон якання і правіла пераходу «у» складовага ў «ў» пасля галосных, запішыце выдзеленае слова ў правільнай арфаграфічнай форме: «Гэты чалавек быў сапраўдны (прэм'ер)міністр(аўскі) ставленік».</span>
+            <span class="q-text">Улічваючы кантэкст, закон якання і правіла пераходу «у» складовага ў «ў» пасля галосных, запішыце выдзеленае слова ў правільнай арфаграфічнай форме: «Гэты чалавек быў сапраўдны (прэм'ер)міністр(аўскі) стаўленік».</span>
           </div>
           <input type="text" class="text-input" name="q8" placeholder="Ваш адказ" autocomplete="off">
           <div class="correct-answer-text">Правільна: прэм'ер-міністраўскі</div>
@@ -619,13 +619,13 @@ for (let q of checkboxQuestions) {
     }
   });
   
-  // Начисление баллов
-  if (selectedRight === 2) {
-    score += 1;       // оба правильных
-  } else if (selectedRight === 1) {
-    score += 0.5;     // только один правильный
-  }
-  // selectedRight === 0 — 0 баллов
+// Начисление баллов (универсальное)
+const totalRightInQuestion = document.querySelectorAll(`input[name="${q}"][value="right"]`).length;
+
+if (selectedRight === totalRightInQuestion) {
+  score += 1;       // все правильные
+} else if (selectedRight > 0) {
+  score += 0.5;     // хотя бы один правильный
 }
 
       // Проверка вопросов 8-10 (текстовые)
