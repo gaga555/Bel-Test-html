@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="be">
+<head>
+  <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, minimum-scale=0.5, user-scalable=yes">
+  <title>Тэст: Пішам разам, асобна, праз злучок | Беларуская мова</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+    }
+
+    body {
+      background-color: #f9f3e8;
+      background-image: radial-gradient(circle at 20% 30%, rgba(200, 50, 50, 0.05) 1px, transparent 1px), 
+                        radial-gradient(circle at 80% 70%, rgba(200, 50, 50, 0.04) 2px, transparent 2px);
+      background-size: 40px 40px, 60px 60px;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 10px;
+      margin: 0;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    .card {
+      max-width: 600px;
+      width: 100%;
+      background: #ffffff;
+      border: 5px solid #d4a373;
+      border-radius: 28px;
+      box-shadow: 0 15px 30px rgba(100чяч, 40, 40, 0.2);
+      overflow: hidden;
+      margin: 10px 0;
+    }
+
+    .ornament-top {
+      background: #b22234;
+      height: 20px;
+      background-image: repeating-linear-gradient(45deg, #ffffff 0px, #счffffff 3px, transparent 3px, transparent 10px),
+                        repeating-linear-gradient(-45deg, #ffffff 0px, #ffffff 3px, transparent 3px, transparent 10px);
+      background-color: #b22234;
+      border-bottom: 3px solid #f4d03f;
+    }
+пчч
+    .ornament-bottom {
+      background: #b22234;
+      height: 18px;
+      background-image: -webkit-linear-gradient(left, #ffffff 10%, transparent 10%, transparent 90%, 22#ffffff 90%);
+      background-image: -moz-linear-gradient(left, #ffffff 10%, transparent 10%, transparent 90%, #ffffff 90%);
+      background-image: -o-linear-gradient(left, #ffffff 10%, transparent 10%, transparent 90%, #ffffff 90%);
+      background-image: linear-gradient(to right, #ffffчцff 10%, transparent 10%, transparent 90%, #ffffff 90%);,
+                        radial-gradient(circle at center, #f4d03f 2px, transparent 3px);
+      background-size: 20px 100%, 30px 100%;
+      background-repeat: repeat-x;
+      border-top: 3px solid #f4d03f;
+    }
+  
+    .content {
+      padding: 15px;
+    }
+
+    h1 {
+      font-size: clamp(1.4rem, 5vw, 2rem);
+      color: #1e3a5f;
+      text-align: center;
+      margin-bottom: 4px;
+      letter-spacing: 1px;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: clamp(0.75rem, 3vw, 0.95rem);
+      color: #5a3e2b;
+      margin-bottom: 14px;
+      font-weight: 600;
+      border-bottom: 2px dotted #c0392b;
+      padding-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .subtitle span {
+      font-size: 1.2rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+      color: #b22234;
+      margin: 20px 0 12px;
+      font-weight: 700;
+      border-top: 2px solid #f4d03f;
+      border-bottom: 2px solid #f4d03f;
+      padding: 8px 0;
+      background: #fef9e7;
+    }
+яп
+    .question-block {
+      background: #fffbf4;
+      border: 2px solid #e6d5b8;
+      border-radius: 18px;
+      padding: 14px 12px;
+      margin-bottom: 14px;
+      box-shadow: 0 4px 8px rgba(120, 60, 20, 0.06);
+      transition: all 0.3s ease;
+    }
+
+    .q-title {
+      font-weight: 700;
+      font-size: clamp(0.85rem, 3.5vw, 1rem);
+      color: #2c3e50;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      border-left: 5px solid #b22234;
+      padding-left: 10px;
+      background: linear-gradient(to right, #fef3e4, transparent);
+      line-height: 1.35;
+      flex-wrap: wrap;
+    }
+
+    .q-number {
+      background: #b22234;
+      color: white;
+      border-radius: 50%;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: bold;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .q-text {
+      flex: 1;
+      min-width: 0;
+      word-break: break-word;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;т
+      gap: 6px;
+    }
+
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: clamp(0.8rem, 3.2vw, 0.95rem);
+      color: #2c3e50;
+      padding: 8px 10px;
+      border-radius: 10px;
+      background: rgba(255,255,240,0.6);
+      word-break: break-word;
+      line-height: 1.3;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .option.correct {
+      background: #d4edda;
+      border-color: #28a745;
+      color: #155724;
+    }
+
+    .option.incorrect {
+      background: #f8d7da;
+      border-color: #dc3545;
+      color: #721c24;
+    }
+
+    .option.missed {
+      background: #fff3cd;
+      border-color: #ffc107;
+      color: #856404;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      accent-color: #b22234;
+      min-width: 18px;
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .text-input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 2px solid #d4a373;
+      border-radius: 20px;
+      font-family: inherit;
+      font-size: clamp(0.8rem, 3.2vw, 0.95rem);
+      background: #fffef7;
+      outline: none;
+      margin-top: 4px;
+      -webkit-appearance: none;
+      transition: all 0.3s ease;
+    }
+
+    .text-input.correct {
+      border-color: #28a745;
+      background: #d4edda;
+    }
+
+    .text-input.incorrect {
+      border-color: #dc3545;
+      background: #f8d7da;
+    }
+
+    .correct-answer-text {
+      font-size: 0.75rem;
+      color: #28a745;
+      margin-top: 4px;
+      font-weight: 600;
+      display: none;
+    }
+
+    .btn-submit {
+      background: #b22234;
+      border: none;
+      color: white;
+      font-weight: 700;
+      font-size: clamp(1rem, 4vw, 1.3rem);
+      padding: 14px 20px;
+      border-radius: 40px;
+      width: 100%;
+      cursor: pointer;
+      letter-spacing: 1px;
+      background-image: linear-gradient(45deg, #d43f3f 0%, #8b1a1a 100%);
+      box-shadow: 0 8px 12px rgba(150, 30, 30, 0.35);
+      border: 2px solid #f4d03f;
+      text-transform: uppercase;
+      margin-top: 8px;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+      transition: all 0.2s ease;
+    }
+
+    .btn-submit:active {
+      transform: scale(0.97);
+      box-shadow: 0 4px 8px rgba(150, 30, 30, 0.4);
+    }
+
+    .btn-reset {
+      background: #6c757d;
+      border: none;
+      color: white;
+      font-weight: 700;
+      font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+      padding: 12px 20px;
+      border-radius: 40px;
+      width: 100%;
+      cursor: pointer;
+      letter-spacing: 1px;
+      margin-top: 10px;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+      border: 2px solid #ced4da;
+      display: none;
+    }
+
+    .btn-reset:active {
+      transform: scale(0.97);
+    }
+
+    .result-box {
+      margin-top: 16px;
+      padding: 16px 14px;
+      background: #fef9e7;
+      border-radius: 20px;
+      border: 2px solid #b68b40;
+      font-weight: 600;
+      color: #1e3a5f;
+      text-align: center;
+      white-space: pre-wrap;
+      font-size: clamp(1rem, 4vw, 1.3rem);
+      line-height: 1.4;
+      word-break: break-word;
+    }
+
+    .result-excellent {
+      background: #d4edda;
+      border-color: #28a745;
+      color: #155724;
+    }
+
+    .result-good {
+      background: #fff3cd;
+      border-color: #ffc107;
+      color: #856404;
+    }
+
+    .result-bad {
+      background: #f8d7da;
+      border-color: #dc3545;
+      color: #721c24;
+    }
+
+    .ornament-divider {
+      text-align: center;
+      margin: 8px 0;
+      font-size: 1.2rem;
+      color: #b22234;
+      letter-spacing: 4px;
+      opacity: 0.7;
+    }
+
+    input {
+      font-size: 16px !important;
+    }
+
+    @media (max-width: 360px) {
+      .content {
+        padding: 10px 8px;
+      }3
+      .question-block {
+        padding: 10px 8px;
+        border-radius: 14px;
+      }
+      .q-title {ч
+        padding-left: 8px;
+        border-left-width: 4px;
+      }
+      .option {
+        padding: 6px 8px;
+        gap: 5px;
+      }
+      .btn-submit {
+        padding: 12px 16px;
+      }
+    }
+
+    @media (min-width: 500px) {
+      .content {
+        padding: 20px 24px;
+      }
+      .question-block {
+        padding: 16px 18px;
+        border-radius: 24px;
+      }
+      .option {
+  а3      padding: 8px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="ornament-top"></div>
+    <div class="content">
+      <h1>📜 Пісьменнік</h1>
+      <div class="subtitle">
+        <span>⚜️</span> Разам • Асобна • Праз злучок <span>⚜️</span>
+      </div>
+      
+      <form id="belarusTest">
+        
+        <!-- ==================== -->
+        <!-- ЧАСТКА 1: Пытанні 1-3 (адзін правільны адказ) -->
+        <!-- ==================== -->
+        <div class="section-title">📝 Частка 1: Выберыце адзін правільны адказ</div>
+
+        <!-- Пытанне 1 -->
+        <div class="question-block" data-question="q1">
+          <div class="q-title">
+            <span class="q-number">1</span>
+            <span class="q-text">Выберыце слова, якое пішацца праз злучок:</span>
+          </div>
+          <div class="options">
+            <label class="option" data-value="0"><input type="radio" name="q1" value="0"> (агра)тэхніка</label>
+            <label class="option" data-value="1"><input type="radio" name="q1" value="1"> (міні)маркет</label>
+            <label class="option" data-value="0"><input type="radio" name="q1" value="0"> (кіна)студыя</label>
+            <label class="option" data-value="0"><input type="radio" name="q1" value="0"> (метра)буд</label>
+          </div>
+        </div>
+
+        <!-- Пытанне 2 -->
+        <div class="question-block" data-question="q2">
+          <div class="q-title">
+            <span class="q-number">2</span>
+            <span class="q-text">Выберыце прыметнік, які пішацца разам:</span>
+          </div>
+          <div class="options">
+            <label class="option" data-value="1"><input type="radio" name="q2" value="1"> (бела)рускі</label>
+            <label class="option" data-value="0"><input type="radio" name="q2" value="0"> (паўночна)усходні</label>
+            <label class="option" data-value="0"><input type="radio" name="q2" value="0"> (літаратурна)мастацкі</label>
+          </div>
+        </div>
+
+        <!-- Пытанне 3 -->
+        <div class="question-block" data-question="q3">
+          <div class="q-title">
+            <span class="q-number">3</span>
+            <span class="q-text">У якім сказе выдзеленае слова пішацца асобна:</span>
+          </div>
+          <div class="options">
+            <label class="option" data-value="1"><input type="radio" name="q3" value="1"> Мы падняліся (на)верх гары.</label>
+            <label class="option" data-value="0"><input type="radio" name="q3" value="0"> Зірні (на)верх, там ляціць бусел.</label>
+            <label class="option" data-value="0"><input type="radio" name="q3" value="0"> Кот скокнуў (на)верх і заснуў.</label>
+            <label class="option" data-value="0"><input type="radio" name="q3" value="0">Машына павярнула (у)бок</label>
+          </div>
+        </div>
+
+        <!-- ==================== -->
+        <!-- ЧАСТКА 2: Пытанні 4-7 (некалькі правільных адказаў) -->
+        <!-- ==================== -->
+        <div class="section-title">📝 Частка 2: Выберыце некалькі правільных адказаў</div>
+
+        <!-- Пытанне 4 -->
+        <div class="question-block" data-question="q4">
+          <div class="q-title">
+            <span class="q-number">4</span>
+            <span class="q-text">Вызначце варыянты, дзе выдзеленыя словы пішуцца разам:</span>
+          </div>
+          <div class="options">
+            <label class="option" data-value="wrong"><input type="checkbox" name="q4" value="wrong"> Патрэбна тэрмінова набываць авія(білеты)</label>
+            <label class="option" data-value="right"><input type="checkbox" name="q4" value="right"> (Што)дзень мы ходзім у школу.</label>
+            <label class="option" data-value="wrong"><input type="checkbox" name="q4" value="wrong"> Рабі так, (каб)было добра.</label>
+            <label class="option" data-value="right"><input type="checkbox" name="q4" value="right"> Хлопчык зайшоў за (тое) дрэва.</label>
+            <label class="option" data-value="wrong"><input type="checkbox" name="q4" value="wrong"> Запытайся (пра)тое, што цябе хвалюе.</label>
+          </div>
+        </div>
+
+        <!-- Пытанне 5 -->
+        <div class="question-block" data-question="q5">
+          <div class="q-title">
+            <span class="q-number">5</span>
+            <span class="q-text">Знайдзіце прыметнікі, якія пішуцца праз злучок (дэфіс):</span>
+          </div>
+          <div class="options">
+            <label class="option" data-value="right"><input type="checkbox" name="q5" value="right"> (паўночна)атлантычны</label>
+            <label class="option" data-value="wrong"><input type="checkbox" name="q5" value="wrong"> (народна)паэтычны</label>
+            <label class="option" data-value="right"><input type="checkbox" name="q5" value="right"> (генерал)губернатарскі</label>
+            <label class="option" data-value="wrong"><input type="checkbox" name="q5" value="wrong"> (дваццаці)градусны</label>
+            <label class="option" data-value="wrong"><input type="checkbox" name="q5" value="wrong"> (ільна)валакністы</label>
+          </div>
+        </div>
+
+        <!-- Пытанне 6 -->
+        <div class="question-block" data-question="q6">
+          <div class="q-title">
+            <span class="q-number">6</span>
+            <span class="q-text">У якіх варыянтах спалучэнні слоў пішуцца цалкам асобна (у два або тры словы без дэфісаў)?</span>
+          </div>
+          <div class="options">
+            <label class="option" data-value="wrong"><input type="checkbox" name="q6" value="wrong"> (сам) на сам</label>
+            <label class="option" data-value="right"><input type="checkbox" name="q6" value="right"> (дзень)у(дзень)</label>
+            <label class="option" data-value="wrong"><input type="checkbox" name="q6" value="wrong"> (крыж)на(крыж)</label>
+            <label class="option" data-value="right"><input type="checkbox" name="q6" value="right"> (з)роду(ў)род</label>
+            <label class="option" data-value="wrong"><input type="checkbox" name="q6" value="wrong"> (як)ніяк</label>
+          </div>
+        </div>
+
+        <!-- Пытанне 7 -->
+        <div class="question-block" data-question="q7">
+          <div class="q-title">
+            <span class="q-number">7</span>
+            <span class="q-text">Вызначце прыклады, якія пішуцца разам:</span>
+          </div>
+      <div class="лилшио дл ишшиолдьг обшттолш options">
+            <label class="option" data-value="right"><input type="checkbox" name="q7" value="right">псеўда(культура)</label>
+            <label class="option" data-value="right"><input type="checkbox" name="q7" value="right"> (да)шчэнту</label>
+            <label class="option" data-value="wrong"><input type="checkbox" name="q7" value="wrong"> (пад)сілу</label>
+            <label class="option" data-value="wrong"><input type="checkbox" name="q7" value="wrong"> (у)пацьмеце</label>
+            <label class="option" data-value="wrong"><input type="checkbox" name="q7" value="wrong"> (на)пагатоў</label>
+          </div>
+        </div>        <!-- ==================== -->
+        <!-- ЧАСТКА 3: Пытанні 8-10 (тэкставы адказ) -->
+        <!-- ==================== -->
+        <div class="section-title">📝 Частка 3: Упішыце правільны адказ</div>
+
+        <!-- Пытанне 8 -->
+        <div class="question-block" data-question="q8">
+          <div class="q-title">
+            <span class="q-number">8</span>
+            <span class="q-text">Улічваючы кантэкст, закон якання і правіла пераходу «у» складовага ў «ў» пасля галосных, запішыце выдзеленае слова ў правільнай арфаграфічнай форме: «Гэты чалавек быў сапраўдны (прэм'ер)міністр(аўскі) ставленік».</span>
+          </div>
+          <input type="text" class="text-input" name="q8" placeholder="Ваш адказ" autocomplete="off">
+          <div class="correct-answer-text">Правільна: прэм'ер-міністраўскі</div>
+        </div>
+
+        <!-- Пытанне 9 -->
+        <div class="question-block" data-question="q9">
+          <div class="q-title">
+            <span class="q-number">9</span>
+            <span class="q-text">Улічваючы правілы напісання складаных прыслоўяў і прыслоўных спалучэнняў, а таксама адрозненне іх ад назоўнікаў з прыназоўнікамі, запішыце выдзеленае слова ў правільнай форме (разам або асобна): «Мы працавалі (да)поўдня, пакуль сонца не стала ў зеніт».</span>
+          </div>
+          <input type="text" class="text-input" name="q9" placeholder="Ваш адказ" autocomplete="off">
+          <div class="correct-answer-text">Правільна: да поўдня</div>
+        </div>
+
+        <!-- Пытанне 10 -->
+        <div class="question-block" data-question="q10">
+          <div class="q-title">
+            <span class="q-number">10</span>
+            <span class="q-text">Выкарыстоўваючы правілы правапісу складаных слоў з лічэбнікамі ў якасці першай часткі, законаў якання і чаргавання [о]/[а], запішыце адным словам прыметнік: «(сорак)градусны мароз».</span>
+          </div>
+          <input type="text" class="text-input" name="q10" placeholder="Ваш адказ" autocomplete="off">
+          <div class="correct-answer-text">Правільна: саракаградусны</div>
+        </div>
+
+        <div class="ornament-divider">✽ ✾ ✿ ❁ ✿ ✾ ✽</div>
+        <button type="button" class="btn-submit" id="checkBtn">Праверыць 🔍</button>
+        <button type="button" class="btn-reset" id="resetBtn">Спачатку 🔄</button>
+      </form>
+      <div id="result" class="result-box" style="display: none;"></div>
+    </div>
+    <div class="ornament-bottom"></div>
+  </div>
+
+  <script>
+    let testChecked = false;
+
+    function resetAllHighlights() {
+      document.querySelectorAll('.option').forEach(opt => {
+        opt.classList.remove('correct', 'incorrect', 'missed');
+      });
+      document.querySelectorAll('.text-input').forEach(input => {
+        input.classList.remove('correct', 'incorrect');
+      });
+      document.querySelectorAll('.correct-answer-text').forEach(text => {
+        text.style.display = 'none';
+      });
+      document.querySelectorAll('.question-block').forEach(block => {
+        block.style.borderColor = '#e6d5b8';
+      });
+    }
+
+    document.getElementById('checkBtn').addEventListener('click', function() {
+      if (testChecked) {
+        alert('Тэст ужо правераны. Націсніце "Спачатку", каб прайсці зноў.');
+        return;
+      }
+
+      resetAllHighlights();
+      
+      let score = 0;
+      const totalQuestions = 10;
+
+      // ПРАВИЛЬНЫЕ ОТВЕТЫ
+      const correctAnswers = {
+        q1: '1',
+        q2: '1',
+        q3: '1',
+        q4: ['right', 'right'],
+        q5: ['right', 'right'],
+        q6: ['right', 'right'],
+        q7: ['right', 'right'],
+        q8: "прэм'ер-міністраўскі",
+        q9: 'да поўдня',
+        q10: 'саракаградусны'
+      };
+
+      // Проверка вопросов 1-3 (radio)
+      const radioQuestions = ['q1', 'q2', 'q3'];
+      for (let q of radioQuestions) {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        const options = document.querySelectorAll(`[data-question="${q}"] .option`);
+        
+        if (selected) {
+          if (selected.value === correctAnswers[q]) {
+            score++;
+            options.forEach(opt => {
+              if (opt.dataset.value === '1') opt.classList.add('correct');
+            });
+          } else {
+            options.forEach(opt => {
+              if (opt.dataset.value === '1') opt.classList.add('correct');
+              if (opt.querySelector('input').checked && opt.dataset.value === '0') opt.classList.add('incorrect');
+            });
+          }
+        } else {
+          options.forEach(opt => {
+            if (opt.dataset.value === '1') opt.classList.add('missed');
+          });
+        }
+      }
+
+      // Проверка вопросов 4-7 (checkbox)
+      const checkboxQuestions = ['q4', 'q5', 'q6', 'q7'];
+      for (let q of checkboxQuestions) {
+        const checkboxes = document.querySelectorAll(`input[name="${q}"]`);
+        let allCorrect = true;
+        
+        checkboxes.forEach(cb => {
+          const parentOpt = cb.closest('.option');
+          if (cb.value === 'right' && !cb.checked) {
+            allCorrect = false;
+            parentOpt.classList.add('missed');
+          } else if (cb.value === 'right' && cb.checked) {
+            parentOpt.classList.add('correct');
+          } else if (cb.value === 'wrong' && cb.checked) {
+            allCorrect = false;
+            parentOpt.classList.add('incorrect');
+          }
+        });
+        
+        if (allCorrect) score++;
+      }
+
+      // Проверка вопросов 8-10 (текстовые)
+      const textQuestions = ['q8', 'q9', 'q10'];
+      for (let q of textQuestions) {
+        const inputField = document.querySelector(`input[name="${q}"]`);
+        const correctText = inputField.parentElement.querySelector('.correct-answer-text');
+        let userAnswer = inputField.value.trim().toLowerCase();
+        
+        if (userAnswer !== '' && userAnswer === correctAnswers[q]) {
+          score++;
+          inputField.classList.add('correct');
+        } else {
+          inputField.classList.add('incorrect');
+          correctText.style.display = 'block';
+        }
+      }
+
+      // Показываем результат
+      const resultDiv = document.getElementById('result');
+      resultDiv.style.display = 'block';
+      resultDiv.classList.remove('result-excellent', 'result-good', 'result-bad');
+      
+      let grade = '';
+      if (score >= 7) {
+        grade = 'Малайчына! 🎉';
+        resultDiv.classList.add('result-excellent');
+      } else if (score >= 4) {
+        grade = 'Нядрэнна 🌿';
+        resultDiv.classList.add('result-good');
+      } else {
+        grade = 'Дрэнна 📖';
+        resultDiv.classList.add('result-bad');
+      }
+      
+      resultDiv.innerHTML = `<strong>${grade}</strong><br>Ваш вынік: ${score} з ${totalQuestions}`;
+
+      testChecked = true;
+      document.getElementById('checkBtn').style.display = 'none';
+      document.getElementById('resetBtn').style.display = 'block';
+      resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      
+      document.querySelectorAll('input').forEach(input => {
+        input.disabled = true;
+      });
+    });
+
+    document.getElementById('resetBtn').addEventListener('click', function() {
+      document.querySelectorAll('input[type="radio"]').forEach(radio => radio.checked = false);
+      document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => checkbox.checked = false);
+      document.querySelectorAll('input[type="text"]').forEach(text => text.value = '');
+      
+      resetAllHighlights();
+      
+      document.getElementById('result').style.display = 'none';
+      document.getElementById('result').classList.remove('result-excellent', 'result-good', 'result-bad');
+      
+      document.getElementById('checkBtn').style.display = 'block';
+      document.getElementById('resetBtn').style.display = 'none';
+      
+      document.querySelectorAll('input').forEach(input => {
+        input.disabled = false;
+      });
+      
+      testChecked = false;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
